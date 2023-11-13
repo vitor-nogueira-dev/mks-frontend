@@ -12,5 +12,6 @@ export interface IPropsInitialState {
   },
   products: IProduct[],
   loading: boolean,
-  error: string
+  error: string,
+  isOpenCart: boolean
 }
