@@ -9,6 +9,7 @@ import ListProducts from '@/components/ListProducts';
 import { useQuery } from 'react-query';
 import { SET_PRODUCTS } from '@/redux/actions/actions';
 import { fetchProducts } from '@/services/fetchProducts';
+import { DrawerCart } from '@/components/DrawerCart';
 
 
 
@@ -44,6 +45,7 @@ const Products = (props: Props) => {
     <ProductsContainer>
       <Header />
       <ListProducts products={products} />
+      <DrawerCart />
     </ProductsContainer>
   )
 }
