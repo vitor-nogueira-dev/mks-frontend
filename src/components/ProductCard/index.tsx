@@ -1,14 +1,28 @@
 import { IProduct } from '@/interfaces/IProduct'
 import React from 'react'
+import { ContainerProduct, ContentProduct, NameProduct, DescriptionProduct, PriceProduct, ButtonAddProduct, PhotoProduct, ContentTextsProduct, BagIconProduct } from './styles'
 
-type Props = {
-  products: IProduct[]
-}
 
-function ProductCard({ products }: Props) {
-  // console.log(products, 'products')
+function ProductCard({ products }: { products: IProduct[]}) {
   return (
-    <div>ProductCard</div>
+    products?.map((product) => (
+      <ContainerProduct key={product.id}>
+        <PhotoProduct src={product.photo} />
+        <ContentProduct>
+          <ContentTextsProduct>
+            <NameProduct>{product.name}</NameProduct>
+            <PriceProduct>{product.price}</PriceProduct>
+            <DescriptionProduct>
+              Redesigned from scratch and completely revised.
+            </DescriptionProduct>
+          </ContentTextsProduct>
+          <ButtonAddProduct>
+            <BagIconProduct src="/shopping-bag.png" />
+            comprar
+          </ButtonAddProduct>
+        </ContentProduct>
+      </ContainerProduct>
+    ))
   )
 }
 
