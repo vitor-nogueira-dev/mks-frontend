@@ -11,4 +11,6 @@ export interface IPropsInitialState {
     }
   },
   products: IProduct[],
+  loading: boolean,
+  error: string
 }
