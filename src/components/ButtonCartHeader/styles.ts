@@ -11,6 +11,13 @@ export const ButtonCartContainer = styled.div`
   align-items: center;
   justify-content: center;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+
+  cursor: pointer;
+
+  &:hover { 
+    background: #F2F2F2;
+    transition: all ease-in-out 0.3s;
+  }
 `;
 
 export const ButtonCartIcon = styled.img<IPropsIconCart>`
