@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import { HeaderContainer, HeaderTitle, HeaderSubtitle, HeaderContentTitles } from './styles'
-import ButtonCart from '../ButtonCart'
+import ButtonCart from '../ButtonCartHeader'
 
 type Props = {}
 
