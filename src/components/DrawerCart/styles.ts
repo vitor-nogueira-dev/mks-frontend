@@ -19,8 +19,11 @@ line-height: normal;
 `;
 
 export const ContentProductsCart = styled.div`
-margin-bottom: 24px;
-padding-right: 16px;
+margin: auto;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
 `;
 
 export const ContentFooterCart = styled.div`
