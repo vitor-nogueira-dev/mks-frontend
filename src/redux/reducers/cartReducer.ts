@@ -1,9 +1,10 @@
 import { IPropsInitialState } from "@/interfaces/IPropsInitialState";
-import { ADD_PRODUCT, REMOVE_PRODUCT } from "../actions/actions";
+import { ADD_PRODUCT, REMOVE_PRODUCT, SET_PRODUCTS } from "../actions/actions";
 
 
 const initialState: IPropsInitialState = {
-  items: {},
+  productsCart: {},
+  products: [],
 }
 
 const CartReducer = (state = initialState, { type, payload }: { type: string, payload: any }) => {
@@ -16,6 +17,7 @@ const CartReducer = (state = initialState, { type, payload }: { type: string, pa
       return {
         ...state,
       };
+    case SET_PRODUCTS:
     default:
       return state;
   }
