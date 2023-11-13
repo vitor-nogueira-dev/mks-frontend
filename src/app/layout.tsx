@@ -1,10 +1,11 @@
 'use client';
-import { Inter } from 'next/font/google'
+import { Montserrat } from 'next/font/google'
 import './globals.css'
 import { QueryClient, QueryClientProvider } from 'react-query';
-import Head from 'next/head';
+import { Provider } from 'react-redux';
+import store from '@/redux/store';
 
-const inter = Inter({ subsets: ['latin'] })
+const montserrat = Montserrat({ subsets: ['latin'] })
 
 const queryClient = new QueryClient();
 
@@ -21,10 +22,12 @@ export default function RootLayout({
         </title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </head>
-      <body className={inter.className}>
-        <QueryClientProvider client={queryClient}>
-          {children}
-        </QueryClientProvider>
+      <body className={montserrat.className}>
+        <Provider store={store}>
+          <QueryClientProvider client={queryClient}>
+            {children}
+          </QueryClientProvider>
+        </Provider>
       </body>
     </html>
   )
