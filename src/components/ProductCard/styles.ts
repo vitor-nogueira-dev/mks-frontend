@@ -28,10 +28,15 @@ padding: 14px 9px;
 gap: 6px;
 `;
 
-export const NameProduct = styled.h3`
-width:60%;
+interface FontSizeProps {
+  fontSize: string;
+  bg?: string;
+}
+
+export const NameProduct = styled.h3<FontSizeProps>`
+width: 60%;
 color: #2C2C2C;
-font-size: 16px;
+font-size:  ${(props) => props.fontSize}; // 16px
 font-style: normal;
 font-weight: 400;
 line-height: 19px;
@@ -50,7 +55,7 @@ padding: 0 2px;
 
 `;
 
-export const PriceProduct = styled.p`
+export const PriceProduct = styled.p<FontSizeProps>`
 width: 64px;
 height: 26px;
 flex-shrink: 0;
@@ -59,9 +64,9 @@ justify-content: center;
 align-items: center;
 padding: 5px 10px;
 border-radius: 5px;
-background: #373737;
+background: ${(props) => props.bg || '#373737'};
 color: #FFF;
-font-size: 15px;
+font-size:  ${(props) => props.fontSize || '15px'}; // 15px
 font-style: normal;
 font-weight: 700;
 line-height: 15px;`;
@@ -91,8 +96,8 @@ text-transform: uppercase;
 `;
 
 export const PhotoProduct = styled.img`
-  width: 111px;
-  height: 138px;
+  width: ${(props) => props.width || '111px'}; // 111px
+  height: ${(props) => props.height || '138px'};// 138px
   flex-shrink: 0;
   src: url(${(props) => props.src});
 `;
