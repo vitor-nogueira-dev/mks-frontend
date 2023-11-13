@@ -1,5 +1,7 @@
+import { IProduct } from "./IProduct"
+
 export interface IPropsInitialState {
-  items: {
+  productsCart: {
     [key: string]: {
       id: string,
       name: string,
@@ -7,5 +9,6 @@ export interface IPropsInitialState {
       photo: string,
       amount: number,
     }
-  }
+  },
+  products: IProduct[],
 }
