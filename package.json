@@ -11,6 +11,7 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
+    "@material-tailwind/react": "^2.1.4",
     "@redux-devtools/extension": "^3.2.6",
     "next": "14.0.2",
     "react": "^18",
