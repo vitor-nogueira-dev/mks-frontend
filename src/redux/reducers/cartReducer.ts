@@ -1,5 +1,5 @@
 import { IPropsInitialState } from "@/interfaces/IPropsInitialState";
-import { ADD_PRODUCT, REMOVE_PRODUCT, SET_ERROR, SET_LOADING, SET_PRODUCTS } from "../actions/actions";
+import { ADD_PRODUCT, REMOVE_PRODUCT, SET_ERROR, SET_LOADING, SET_PRODUCTS, TOGGLE_CART } from "../actions/actions";
 
 
 const initialState: IPropsInitialState = {
@@ -7,6 +7,7 @@ const initialState: IPropsInitialState = {
   products: [],
   loading: false,
   error: '',
+  isOpenCart: false
 }
 
 const CartReducer = (state = initialState, { type, payload }: { type: string, payload: any }) => {
@@ -22,7 +23,7 @@ const CartReducer = (state = initialState, { type, payload }: { type: string, pa
     case SET_PRODUCTS:
       return {
         ...state,
-        products: payload
+        products: payload?.products,
       };
     case SET_LOADING:
       return {
@@ -33,6 +34,12 @@ const CartReducer = (state = initialState, { type, payload }: { type: string, pa
       return {
         ...state,
         error: payload
+      }
+    }
+    case TOGGLE_CART: {
+      return {
+        ...state,
+        isOpenCart: payload
       }
     }
     default:
