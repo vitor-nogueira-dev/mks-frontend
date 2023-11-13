@@ -1,6 +1,7 @@
 import React from 'react'
 import ProductCard from '../ProductCard'
 import { IProduct } from '@/interfaces/IProduct'
+import { SectionListProducts } from './styles'
 
 type Props = {
   products: IProduct[]
@@ -8,7 +9,9 @@ type Props = {
 
 function ListProducts({ products }: Props) {
   return (
-    <div><ProductCard products={products} /></div>
+    <SectionListProducts>
+      <ProductCard products={products} />
+    </SectionListProducts>
   )
 }
 
