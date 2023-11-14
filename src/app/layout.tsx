@@ -2,6 +2,9 @@
 import './globals.css'
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { Provider } from 'react-redux';
+import { useEffect } from 'react';
+import AOS from 'aos';
+
 import store from '@/redux/store';
 import { Montserrat } from 'next/font/google'
 import { ThemeProvider } from "@material-tailwind/react";
@@ -16,12 +19,18 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
+  useEffect(() => {
+    AOS.init();
+  }, [])
   return (
     <html lang="pt">
       <head>
         <title>
           MKS Frontend Challenge
         </title>
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </head>
       <body className={montserrat.className}>
@@ -32,6 +41,7 @@ export default function RootLayout({
             </QueryClientProvider>
           </Provider>
         </ThemeProvider>
+        <script async src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
       </body>
     </html>
   )

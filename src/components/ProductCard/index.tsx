@@ -16,6 +16,7 @@ import {
   BagIconProduct
 } from './styles';
 
+
 function ProductCard({ products }: { products: IProduct[] }) {
 
   const dispatch = useDispatch();
@@ -25,8 +26,13 @@ function ProductCard({ products }: { products: IProduct[] }) {
   }
 
   return (
-    products?.map((product) => (
-      <ContainerProduct key={product.id} >
+    products?.map((product, index) => (
+      <ContainerProduct key={product.id}
+        data-aos="fade-up"
+        data-aos-anchor-placement="top-bottom"
+        data-aos-delay={index * 100}
+        data-aos-duration="1000"
+      >
         <PhotoProduct src={product.photo} />
         <ContentProduct>
           <ContentTextsProduct>
