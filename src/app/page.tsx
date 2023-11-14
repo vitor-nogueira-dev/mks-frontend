@@ -1,11 +1,10 @@
-import Products from '@/pages/Products'
-import UsersComponent from '@/services/resquestAPI'
-import Image from 'next/image'
+import ListProductsDisplay from '@/pages/ListProductsDisplay'
+import { Main } from './styles'
 
 export default function Home() {
   return (
-    <main>
-      <h1>Hello World</h1>
-    </main>
+    <Main>
+      <ListProductsDisplay />
+    </Main>
   )
 }
