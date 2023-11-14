@@ -1,6 +1,7 @@
 import { IPropsInitialState } from "@/interfaces/IPropsInitialState";
 import { ADD_PRODUCT, REMOVE_ALL_PRODUCT, REMOVE_PRODUCT, SET_LOADING, SET_PRODUCTS, TOGGLE_CART } from "../actions/actions";
 import { IProduct } from "@/interfaces/IProduct";
+import { TypeOptions } from "react-toastify";
 
 const initialState: IPropsInitialState = {
   productsCart: [],
@@ -49,7 +50,7 @@ const CartReducer = (state = initialState, { type, payload }: { type: string, pa
         totalPrice: calculateTotalPrice(updatedCart),
         totalItems: calculateTotalItems(updatedCart),
         toast: {
-          type: 'info',
+          type: 'info' as TypeOptions,
           message: 'Produto adicionado com sucesso!'
         }
       };
@@ -77,7 +78,7 @@ const CartReducer = (state = initialState, { type, payload }: { type: string, pa
         totalPrice: calculateTotalPrice(updatedCart),
         totalItems: calculateTotalItems(updatedCart),
         toast: {
-          type: 'info',
+          type: 'info' as TypeOptions,
           message: 'Produto removido com sucesso!'
         }
       };
@@ -108,7 +109,7 @@ const CartReducer = (state = initialState, { type, payload }: { type: string, pa
         totalPrice: calculateTotalPrice(newCart),
         totalItems: calculateTotalItems(newCart),
         toast: {
-          type: 'info',
+          type: 'info' as TypeOptions,
           message: 'Produto removido com sucesso!'
         }
       };
