@@ -1,11 +1,10 @@
 import React from 'react'
 import { ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css';
 
 function ToastComponent() {
   return (
     <ToastContainer
-      position="top-right"
+      position="bottom-center"
       autoClose={2000}
       hideProgressBar={false}
       newestOnTop={false}
@@ -14,7 +13,7 @@ function ToastComponent() {
       pauseOnFocusLoss
       draggable
       pauseOnHover
-      theme="dark"
+      theme="light"
     />
   )
 }
