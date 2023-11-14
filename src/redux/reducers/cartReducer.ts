@@ -10,7 +10,10 @@ const initialState: IPropsInitialState = {
   isOpenCart: false,
   totalPrice: 0,
   totalItems: 0,
-  toast: {  },
+  toast: {
+    type: 'info',
+    message: ''
+  },
 } ;
 
 function calculateTotalPrice(products: IProduct[]) {
@@ -26,9 +29,9 @@ const CartReducer = (state = initialState, { type, payload }: { type: string, pa
   switch (type) {
     case ADD_PRODUCT: {
       const productId = payload.id || payload.payload.id;
-      const productIndex = state.productsCart.findIndex(product => product.id === productId);
+      const productIndex = state.productsCart!.findIndex(product => product.id === productId);
 
-      let updatedCart = [...state.productsCart];
+      let updatedCart = [...state.productsCart!];
 
       if (productIndex !== -1) {
         updatedCart[productIndex] = {
@@ -46,7 +49,7 @@ const CartReducer = (state = initialState, { type, payload }: { type: string, pa
         totalPrice: calculateTotalPrice(updatedCart),
         totalItems: calculateTotalItems(updatedCart),
         toast: {
-          type: 'success',
+          type: 'info',
           message: 'Produto adicionado com sucesso!'
         }
       };
@@ -54,13 +57,13 @@ const CartReducer = (state = initialState, { type, payload }: { type: string, pa
     case REMOVE_PRODUCT: {
       const productIdRemove = payload.id || payload.payload.id;
 
-      const productIndexRemove = state.productsCart.findIndex(product => product.id === productIdRemove);
+      const productIndexRemove = state.productsCart!.findIndex(product => product.id === productIdRemove);
 
       if (productIndexRemove === -1) {
         return state;
       }
 
-      let updatedCart = [...state.productsCart];
+      let updatedCart = [...state.productsCart!];
       let removedProduct = updatedCart[productIndexRemove];
 
       if (removedProduct.amount > 1) {
@@ -74,7 +77,7 @@ const CartReducer = (state = initialState, { type, payload }: { type: string, pa
         totalPrice: calculateTotalPrice(updatedCart),
         totalItems: calculateTotalItems(updatedCart),
         toast: {
-          type: 'success',
+          type: 'info',
           message: 'Produto removido com sucesso!'
         }
       };
@@ -97,7 +100,7 @@ const CartReducer = (state = initialState, { type, payload }: { type: string, pa
     }
     case REMOVE_ALL_PRODUCT: {
       const productIdToRemove = payload.id || payload.payload.id;
-      const newCart = state.productsCart.filter(product => product.id !== productIdToRemove);
+      const newCart = state.productsCart!.filter(product => product.id !== productIdToRemove);
 
       return {
         ...state,
@@ -105,7 +108,7 @@ const CartReducer = (state = initialState, { type, payload }: { type: string, pa
         totalPrice: calculateTotalPrice(newCart),
         totalItems: calculateTotalItems(newCart),
         toast: {
-          type: 'success',
+          type: 'info',
           message: 'Produto removido com sucesso!'
         }
       };

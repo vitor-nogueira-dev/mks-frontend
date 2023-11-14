@@ -1,5 +1,5 @@
 'use client'
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useQuery } from 'react-query';
 import { TypeOptions, toast } from 'react-toastify';
@@ -10,7 +10,6 @@ import DrawerCart from '@/components/DrawerCart';
 import Skeleton from '@/components/Skeleton';
 import ToastComponent from '@/components/ToastComponent';
 import { ProductsContainer } from './styles';
-import { IProduct } from '@/interfaces/IProduct';
 import { getLoading, getProducts, getProductsCart, getToast, getTotalPrice } from '@/redux/selectors/selectors';
 import { SET_LOADING, SET_PRODUCTS } from '@/redux/actions/actions';
 import { fetchProducts } from '@/services/fetchProducts';
@@ -29,8 +28,8 @@ const ListProductsDisplay = () => {
   }
 
   const toastFunction: Toast = useMemo(() => ({
-    success: (message: string) => {
-      toast.success(message);
+    info: (message: string) => {
+      toast.info(message);
     },
     error: (message: string) => {
       toast.error(message);

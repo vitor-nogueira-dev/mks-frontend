@@ -10,5 +10,8 @@ export interface IPropsInitialState {
   isOpenCart: boolean,
   totalPrice: number,
   totalItems: number,
-  toast: {}
+  toast: {
+    type: TypeOptions,
+    message: string
+  }
 }
