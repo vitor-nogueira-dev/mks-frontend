@@ -10,11 +10,8 @@ const initialState: IPropsInitialState = {
   isOpenCart: false,
   totalPrice: 0,
   totalItems: 0,
-  toast: {
-    type: 'success',
-    message: ''
-  },
-}
+  toast: {  },
+} ;
 
 function calculateTotalPrice(products: IProduct[]) {
   return products.reduce((total, product) => total + product.price * product.amount, 0);
