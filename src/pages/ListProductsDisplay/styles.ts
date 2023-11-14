@@ -2,6 +2,8 @@
 import styled from 'styled-components';
 
 export const ProductsContainer = styled.div`
-  width: 90rem;
-  margin: 0 auto;
+  width: 1440px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 `;
