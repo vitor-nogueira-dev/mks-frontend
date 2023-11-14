@@ -4,6 +4,7 @@ import {
   IconButton,
 } from "@material-tailwind/react";
 import { useSelector, useDispatch } from "react-redux";
+import Image from "next/image";
 
 import { IProduct } from "@/interfaces/IProduct";
 import { getToggleCart } from "@/redux/selectors/selectors";
@@ -63,8 +64,20 @@ function DrawerCart({ productsCart, totalPrice }: { productsCart: IProduct[], to
               </svg>
             </IconButton>
           </ContentHeaderCart>
-          <ContentProductsCart >
-            <ProductCart productsCart={productsCart} />
+          <ContentProductsCart>
+            {productsCart.length === 0 ?
+              <>
+                <p className="text-white">Nenhum produto no carrinho</p>
+                <Image
+                  src="/empty-cart.png"
+                  alt="Empty Cart"
+                  width={100}
+                  height={100}
+                  className="opacity-50"
+                />
+              </> :
+              <ProductCart productsCart={productsCart} />
+            }
           </ContentProductsCart>
         </div>
         <ContentFooterCart>
