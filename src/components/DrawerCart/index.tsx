@@ -1,17 +1,18 @@
 import React, { Fragment, useEffect, useState } from "react";
 import {
   Drawer,
-  Button,
-  Typography,
   IconButton,
 } from "@material-tailwind/react";
-
-import { getToggleCart } from "@/redux/selectors/selectors";
 import { useSelector, useDispatch } from "react-redux";
+
+import { IProduct } from "@/interfaces/IProduct";
+import { getToggleCart } from "@/redux/selectors/selectors";
 import { TOGGLE_CART } from "@/redux/actions/actions";
+import { formatPriceListProducts } from "@/services/formatNumber";
+import ProductCart from "../ProductCart";
 import { ContentFooterCart, ContentHeaderCart, ContentProductsCart, ContentTotalCart, ContentButtonCart, TitleCart } from "./styles";
 
-export function DrawerCart() {
+function DrawerCart({ productsCart, totalPrice }: { productsCart: IProduct[], totalPrice: number }) {
   const [openLeft, setOpenLeft] = useState(false);
 
   const toggleCart = useSelector(getToggleCart);
@@ -43,16 +44,16 @@ export function DrawerCart() {
             </TitleCart>
             <IconButton
               variant="text"
-              color="blue-gray"
+              color="white"
               onClick={closeDrawerLeft}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                fill="none"
+                fill="black"
                 viewBox="0 0 24 24"
                 strokeWidth={2}
                 stroke="currentColor"
-                className="h-7 w-7 bg-blue-gray-900 rounded-full p-1"
+                className="h-7 w-7 bg-black rounded-full p-1"
               >
                 <path
                   strokeLinecap="round"
@@ -62,18 +63,19 @@ export function DrawerCart() {
               </svg>
             </IconButton>
           </ContentHeaderCart>
-          <ContentProductsCart className="mb-8 pr-4 font-normal">
-            Material Tailwind features multiple React and HTML components, all
-            written with Tailwind CSS classes and Material Design guidelines.
+          <ContentProductsCart >
+            <ProductCart productsCart={productsCart} />
           </ContentProductsCart>
         </div>
         <ContentFooterCart>
           <ContentTotalCart>
-            Total:  <span>R$4000</span>
+            Total:  <span>{formatPriceListProducts(totalPrice)}</span>
           </ContentTotalCart>
-        <ContentButtonCart>Finalizar Compra</ContentButtonCart>
+          <ContentButtonCart>Finalizar Compra</ContentButtonCart>
         </ContentFooterCart>
       </Drawer>
     </Fragment>
   );
 }
+
+export default DrawerCart;

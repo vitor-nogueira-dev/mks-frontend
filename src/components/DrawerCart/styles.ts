@@ -1,3 +1,4 @@
+'use client';
 import styled from "styled-components";
 
 export const ContentHeaderCart = styled.div`
@@ -22,14 +23,24 @@ export const ContentProductsCart = styled.div`
 margin: auto;
 display: flex;
 flex-direction: column;
-justify-content: center;
+justify-content: flex-start;
 align-items: center;
+gap: 20px;
+
+max-height: 600px;
+overflow-y: auto;
+padding-top: 20px;
+
+::-webkit-scrollbar {
+  display: none;
+}
+-ms-overflow-style: none;
+scrollbar-width: none;
 `;
 
 export const ContentFooterCart = styled.div`
 display: flex;
 flex-direction: column;
-/* border: 1px solid #000; */
 `;
 
 export const ContentTotalCart = styled.h4`
@@ -47,7 +58,6 @@ padding: 26px;
 `;
 
 export const ContentButtonCart = styled.button`
-width: 486px;
 height: 80px;
 flex-shrink: 0;
 background: #000;
@@ -55,5 +65,5 @@ color: #FFF;
 font-size: 28px;
 font-style: normal;
 font-weight: 700;
-line-height: 15px; /* 53.571% */
+line-height: 15px; 
 `;
