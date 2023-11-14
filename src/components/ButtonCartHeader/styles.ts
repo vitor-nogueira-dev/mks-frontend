@@ -29,7 +29,6 @@ export const ButtonCartIcon = styled.img<IPropsIconCart>`
 
 export const ButtonCartText = styled.div`
   color: #000;
-  font-family: Montserrat;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;

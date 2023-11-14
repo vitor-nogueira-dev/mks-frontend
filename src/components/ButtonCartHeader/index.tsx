@@ -1,13 +1,15 @@
 'use client'
 import React from 'react'
-import { ButtonCartContainer, ButtonCartIcon, ButtonCartText } from './styles'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+
 import { TOGGLE_CART } from '@/redux/actions/actions'
-type Props = {}
+import { getTotalItems } from '@/redux/selectors/selectors'
+import { ButtonCartContainer, ButtonCartIcon, ButtonCartText } from './styles'
 
-
-function ButtonCartHeader({ }: Props) {
+function ButtonCartHeader() {
   const dispatch = useDispatch()
+
+  const getTotalsItems = useSelector(getTotalItems)
 
   const handleOpenCart = () => {
     dispatch({ type: TOGGLE_CART, payload: true })
@@ -15,7 +17,7 @@ function ButtonCartHeader({ }: Props) {
   return (
     <ButtonCartContainer onClick={handleOpenCart}>
       <ButtonCartIcon src='/icon-cart.png' />
-      <ButtonCartText>0</ButtonCartText>
+      <ButtonCartText>{getTotalsItems}</ButtonCartText>
     </ButtonCartContainer>
   )
 }

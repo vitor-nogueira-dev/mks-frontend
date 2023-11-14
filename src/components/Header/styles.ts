@@ -18,7 +18,6 @@ export const HeaderContentTitles = styled.div`
 
 export const HeaderTitle = styled.h1`
   color: #fff;
-  font-family: Montserrat;
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 600;
@@ -28,7 +27,6 @@ export const HeaderTitle = styled.h1`
 
 export const HeaderSubtitle = styled.h2`
   color: #fff;
-  font-family: Montserrat;
   font-size: 1.2rem;
   font-style: normal;
   font-weight: 300;
