@@ -1,3 +1,4 @@
+'use client'
 import styled from "styled-components";
 
 export const ContainerProduct = styled.div`
@@ -22,24 +23,29 @@ flex-wrap: wrap;
 export const ContentTextsProduct = styled.div`
 display: flex;
 flex-wrap: wrap;
-justify-content: space-between;
+justify-content: space-around;
 height: 92px;
 padding: 14px 9px;
 gap: 6px;
 `;
 
-interface FontSizeProps {
-  fontSize: string;
-  bg?: string;
+interface PropsStyled {
+  fontSize?: string;
+  backgroundColor?: string;
+  width?: string;
 }
 
-export const NameProduct = styled.h3<FontSizeProps>`
-width: 60%;
+export const NameProduct = styled.h3<PropsStyled>`
+width: ${(props) => props.width || '60%'};
 color: #2C2C2C;
-font-size:  ${(props) => props.fontSize}; // 16px
+font-size:  ${(props) => props.fontSize || '16px'}; 
 font-style: normal;
 font-weight: 400;
 line-height: 19px;
+
+  @media (max-width: 768px) {
+    font-size: 15px;
+  }
 `;
 
 export const DescriptionProduct = styled.p`
@@ -52,11 +58,10 @@ font-style: normal;
 font-weight: 300;
 line-height: 12px;
 padding: 0 2px;
-
 `;
 
-export const PriceProduct = styled.p<FontSizeProps>`
-width: 64px;
+export const PriceProduct = styled.p<{ $backgroundColor?: string, $width?: string, $fontSize?: string }>`
+width: ${(props) => props.$width || '36%'};
 height: 26px;
 flex-shrink: 0;
 display: flex;
@@ -64,9 +69,9 @@ justify-content: center;
 align-items: center;
 padding: 5px 10px;
 border-radius: 5px;
-background: ${(props) => props.bg || '#373737'};
-color: #FFF;
-font-size:  ${(props) => props.fontSize || '15px'}; // 15px
+background: ${(props) => props.$backgroundColor || '#373737'};
+color: ${(props) => props.color || '#FFF'};
+font-size:  ${(props) => props.$fontSize || '15px'}; 
 font-style: normal;
 font-weight: 700;
 line-height: 15px;`;
@@ -96,8 +101,8 @@ text-transform: uppercase;
 `;
 
 export const PhotoProduct = styled.img`
-  width: ${(props) => props.width || '111px'}; // 111px
-  height: ${(props) => props.height || '138px'};// 138px
+  width: ${(props) => props.width || '111px'}; 
+  height: ${(props) => props.height || '138px'};
   flex-shrink: 0;
   src: url(${(props) => props.src});
 `;
