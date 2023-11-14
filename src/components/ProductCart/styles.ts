@@ -15,7 +15,7 @@ padding: 4px;
 position: relative; 
 
   @media (max-width: 768px) {
-    width: 338px;
+    width: 294px;
   }
 `;
 
