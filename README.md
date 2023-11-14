@@ -14,7 +14,7 @@
 > Antes de iniciar a instalação, certifique-se de ter instalado em sua máquina o [Node.js](https://nodejs.org/en/download/) (v18.17.1)
 > Abra o terminal e execute o comando abaixo para clonar o repositório:
 ```shell
-git clone link
+git clone git@github.com:vitor-nogueira-dev/mks-frontend.git
 ```
 
 > Em seguida, execute o comando abaixo para instalar as dependências do projeto:
