@@ -4,7 +4,9 @@
 > Este é um carrinho de compras desenvolvido para o teste da MKS Sistemas. <br>
 
 ## Deploy da Aplicação com Vercel
-[Acesse aqui](https://mks-frontend-vitornogueira.vercel.app/)
+👨🏼‍💻 [Acesse aqui](https://mks-frontend-vitornogueira.vercel.app/)
+
+---
 
 > ⁉️ Deseja rodar o projeto em sua máquina? Siga os passos abaixo:
 
