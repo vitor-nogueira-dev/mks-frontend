@@ -1,6 +1,7 @@
 import React from 'react'
-import ProductCard from '../ProductCard'
+
 import { IProduct } from '@/interfaces/IProduct'
+import ProductCard from '../ProductCard'
 import { SectionListProducts } from './styles'
 
 type Props = {
