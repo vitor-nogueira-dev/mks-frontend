@@ -17,6 +17,11 @@
 git clone git@github.com:vitor-nogueira-dev/mks-frontend.git
 ```
 
+> Acesse o repositório:
+```shell
+cd mks-frontend
+```
+
 > Em seguida, execute o comando abaixo para instalar as dependências do projeto:
 ```shell
 npm install
